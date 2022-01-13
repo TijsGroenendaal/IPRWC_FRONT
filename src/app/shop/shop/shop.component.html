@@ -1,5 +1,10 @@
-<app-paged-list-component [pageableInterface]="productService">
-  <ng-template let-product #row>
-    <app-product [product]="product"></app-product>
-  </ng-template>
-</app-paged-list-component>
+<article class="">
+  <div class="flex items-center justify-center">
+    <app-paged-list-component [pageableInterface]="productService" class="w-1/2">
+      <ng-template let-product #row>
+        <app-product [product]="product"></app-product>
+      </ng-template>
+    </app-paged-list-component>
+  </div>
+
+</article>

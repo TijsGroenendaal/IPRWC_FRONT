@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {AfterContentChecked, AfterViewChecked, AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {ProductModel} from "./product.model";
 import {ProductService} from "../product.service";
 
@@ -6,8 +6,8 @@ import {ProductService} from "../product.service";
   selector: 'app-product',
   templateUrl: './product.component.html',
 })
-export class ProductComponent {
-
+export class ProductComponent implements AfterContentChecked {
+  public available: boolean;
   @Input() product: ProductModel;
 
   constructor(
@@ -16,5 +16,9 @@ export class ProductComponent {
 
   public openProduct(): void {
 
+  }
+
+  ngAfterContentChecked(): void {
+    this.available = this.product.quantity > 0
   }
 }

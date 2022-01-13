@@ -1,21 +1,24 @@
-<div class="bg-dark-primary p-4">
-  <div class="flex font-bold justify-between">
-    <div class="inline-flex">
-      <img [src]="product.imageUrl" alt="{{product.name}}">
-    </div>
-    <div>
-      <p class="text-light-primary text-center text-lg">{{product?.name}}</p>
+<section class="bg-light-primary p-4 shadow-md">
+  <div class="flex font-bold justify-between ">
+    <div class="flex">
+      <figure class="flex-none">
+        <img src="{{product.imageUrl}}"
+             alt="{{product.name}}" class="object-contain w-60 h-60">
+      </figure>
+
       <div>
-        <ul>
-          <li>
-            <p>{{product.description}}</p>
-          </li>
-        </ul>
+        <h2 class="text-blue-500">{{product.brand}}</h2>
+        <h1 class="text-highlight text-3xl">{{product?.name}}</h1>
+        <p class="overflow-hidden text-ellipsis">{{product.description}}</p>
       </div>
     </div>
-    <div class="flex justify-between space-x-2 m-0">
-      <h3>{{product.price}}</h3>
-      <button (click)="openProduct()"    class="text-lg px-3 py-1 text-dark-primary   rounded-lg bg-light-primary">Order Now</button>
+
+    <div class="flex flex-col flex-none justify-end space-y-2">
+      <p *ngIf="!available" class="text-error"><s>Sold Out</s></p>
+      <p *ngIf="available">Available</p>
+      <h3>€{{product.price}}</h3>
+      <button (click)="openProduct()" [disabled]="!available" class="text-lg disabled:grayscale-25 px-5 py-3 text-dark-primary rounded-lg font-bold {{available ? 'bg-highlight' : 'bg-light-quinary'}}">Order Now >></button>
     </div>
   </div>
-</div>
+
+</section>

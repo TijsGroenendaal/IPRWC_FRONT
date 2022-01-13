@@ -6,5 +6,6 @@ export class ProductModel {
     public price: number,
     public description: string,
     public imageUrl: string,
+    public brand: string,
   ) {}
 }
