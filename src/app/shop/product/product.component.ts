@@ -19,6 +19,6 @@ export class ProductComponent implements AfterContentChecked {
   }
 
   ngAfterContentChecked(): void {
-    this.available = this.product.quantity > 0
+    this.available = this.product?.quantity > 0
   }
 }

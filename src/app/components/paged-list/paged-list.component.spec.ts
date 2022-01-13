@@ -2,27 +2,27 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PagedListComponent } from './paged-list.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { UserService } from '../../user/user.service';
 import { NgxPaginationModule } from 'ngx-pagination';
+import {ProductService} from "../../shop/product.service";
 
 describe('PagedListComponent', () => {
   let component: PagedListComponent;
   let fixture: ComponentFixture<PagedListComponent>;
-  let userService: UserService;
+  let productService: ProductService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, NgxPaginationModule],
-      providers: [UserService],
+      providers: [ProductService],
       declarations: [PagedListComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PagedListComponent);
-    userService = fixture.debugElement.injector.get<UserService>(UserService);
+    productService = fixture.debugElement.injector.get<ProductService>(ProductService);
     component = fixture.componentInstance;
-    component.pageableInterface = userService;
+    component.pageableInterface = productService;
     component.page = {
       content: [],
       pageable: {
