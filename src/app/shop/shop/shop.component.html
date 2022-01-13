@@ -1,1 +1,5 @@
-<p>shop works!</p>
+<app-paged-list-component [pageableInterface]="productService">
+  <ng-template let-product #row>
+    <app-product [product]="product"></app-product>
+  </ng-template>
+</app-paged-list-component>

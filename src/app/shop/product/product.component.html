@@ -1,0 +1,21 @@
+<div class="bg-dark-primary p-4">
+  <div class="flex font-bold justify-between">
+    <div class="inline-flex">
+      <img [src]="product.imageUrl" alt="{{product.name}}">
+    </div>
+    <div>
+      <p class="text-light-primary text-center text-lg">{{product?.name}}</p>
+      <div>
+        <ul>
+          <li>
+            <p>{{product.description}}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex justify-between space-x-2 m-0">
+      <h3>{{product.price}}</h3>
+      <button (click)="openProduct()"    class="text-lg px-3 py-1 text-dark-primary   rounded-lg bg-light-primary">Order Now</button>
+    </div>
+  </div>
+</div>

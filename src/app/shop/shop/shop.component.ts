@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from "../product.service";
 
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
 })
-export class ShopComponent implements OnInit {
+export class ShopComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  constructor(
+    public productService: ProductService
+  ) { }
 
 }
