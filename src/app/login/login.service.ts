@@ -29,7 +29,7 @@ export class LoginService {
     this.stateService.setUser(user);
     switch (user.role) {
       case 'customer':
-        this.router.navigate(['home']);
+        this.router.navigate(['shop']);
         break;
       case 'admin':
         this.router.navigate(['console'])
