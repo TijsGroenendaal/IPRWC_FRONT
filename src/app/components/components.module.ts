@@ -10,6 +10,7 @@ import { ModalComponent } from "./modal/modal.component";
 import { AccountComponent } from './account/account.component';
 import { LoginComponent } from "./login/login.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 
 
@@ -28,6 +29,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     NgxPaginationModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [],
