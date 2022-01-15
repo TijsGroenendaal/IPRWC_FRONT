@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { PassableInterface } from "../modal/passable.interface";
 import { ModalComponent } from "../modal/modal.component";
 import { StateService } from "../state.service";
-import { UserModel } from "../../login/user.model";
+import { UserModel } from "../login/user.model";
 
 @Component({
   selector: 'app-account',

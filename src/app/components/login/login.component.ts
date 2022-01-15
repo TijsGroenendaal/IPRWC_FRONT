@@ -1,11 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { LoginService } from "../login.service";
+import { LoginService } from "./login.service";
 import { Router } from "@angular/router";
-import { SnackbarService } from "../../components/snackbar/snackbar.service";
-import { SnackbarType } from "../../components/snackbar/snackbar-type.enum";
-import { PassableInterface } from "../../components/modal/passable.interface";
-import { ModalComponent } from "../../components/modal/modal.component";
+import { SnackbarService } from "../snackbar/snackbar.service";
+import { SnackbarType } from "../snackbar/snackbar-type.enum";
+import { PassableInterface } from "../modal/passable.interface";
+import { ModalComponent } from "../modal/modal.component";
 
 @Component({
   selector: 'app-login',
@@ -43,14 +43,12 @@ export class LoginComponent extends PassableInterface<any> {
     this.loginService
       .login(this.loginForm.value.username, this.loginForm.value.password)
       .subscribe({
-        complete: () => {
-          this.close();
-        },
         error: (err) => {
           this.snackbarService.show(err['error']['message'], SnackbarType.DANGER)
         },
         next: (data) => {
-          console.log(data)
+          this.snackbarService.show("Login Successfully", SnackbarType.SUCCESS)
+          this.close();
         }
       });
   }

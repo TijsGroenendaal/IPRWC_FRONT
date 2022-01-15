@@ -8,6 +8,8 @@ import { SnackbarComponent } from "./snackbar/snackbar.component";
 import { HeaderComponent } from './header/header.component';
 import { ModalComponent } from "./modal/modal.component";
 import { AccountComponent } from './account/account.component';
+import { LoginComponent } from "./login/login.component";
+import { ReactiveFormsModule } from "@angular/forms";
 
 
 
@@ -19,19 +21,22 @@ import { AccountComponent } from './account/account.component';
     HeaderComponent,
     ModalComponent,
     AccountComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
     NgxPaginationModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [],
   exports: [
-      PagedListComponent,
-      SnackbarComponent,
-      HeaderComponent,
-      ModalComponent
+    PagedListComponent,
+    SnackbarComponent,
+    HeaderComponent,
+    ModalComponent,
+    LoginComponent,
   ]
 })
 export class ComponentsModule { }

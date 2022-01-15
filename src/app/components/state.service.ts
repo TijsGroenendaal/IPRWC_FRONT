@@ -1,4 +1,4 @@
-import { UserModel } from "../login/user.model";
+import { UserModel } from "./login/user.model";
 import { Injectable } from "@angular/core";
 
 @Injectable({

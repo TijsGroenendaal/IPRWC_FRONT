@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { StateService } from "../state.service";
-import {LoginService} from "../../login/login.service";
-import {LoginComponent} from "../../login/login/login.component";
-import {AccountComponent} from "../account/account.component";
-import {ModalService} from "../modal/modal.service";
+import { LoginService } from "../login/login.service";
+import { LoginComponent } from "../login/login.component";
+import { AccountComponent } from "../account/account.component";
+import { ModalService } from "../modal/modal.service";
 
 @Component({
   selector: 'app-header',
