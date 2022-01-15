@@ -4,7 +4,8 @@ import { PagedListComponent } from './paged-list/paged-list.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { NgxPaginationModule } from "ngx-pagination";
 import { HttpClientModule } from "@angular/common/http";
-import {SnackbarComponent} from "./snackbar/snackbar.component";
+import { SnackbarComponent } from "./snackbar/snackbar.component";
+import { ModalComponent } from "./modal/modal.component";
 
 
 
@@ -13,6 +14,7 @@ import {SnackbarComponent} from "./snackbar/snackbar.component";
     PagedListComponent,
     ShoppingCartComponent,
     SnackbarComponent,
+    ModalComponent,
   ],
   imports: [
     CommonModule,
@@ -22,8 +24,9 @@ import {SnackbarComponent} from "./snackbar/snackbar.component";
   providers: [],
   bootstrap: [],
   exports: [
-    PagedListComponent,
-    SnackbarComponent,
+      PagedListComponent,
+      SnackbarComponent,
+      ModalComponent
   ]
 })
 export class ComponentsModule { }
