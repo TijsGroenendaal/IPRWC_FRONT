@@ -1,15 +1,20 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { LoginService } from "../login.service";
 import { Router } from "@angular/router";
 import { SnackbarService } from "../../components/snackbar/snackbar.service";
 import { SnackbarType } from "../../components/snackbar/snackbar-type.enum";
+import { PassableInterface } from "../../components/modal/passable.interface";
+import { ModalComponent } from "../../components/modal/modal.component";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent extends PassableInterface<any> {
+  @ViewChild('modalComponent')
+  modal: ModalComponent<LoginComponent>;
+
   @ViewChild('username') usernameInputField: HTMLInputElement;
   @ViewChild('password') passwordInputField: HTMLInputElement;
 
@@ -22,6 +27,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private snackbarService: SnackbarService,
   ) {
+    super();
     this.loginForm = this.formBuilder.group({
       username: ['', [Validators.required, Validators.maxLength(128)]],
       password: ['', [Validators.required, Validators.maxLength(128)]],
@@ -32,24 +38,16 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.loginService.checkIfLoggedIn().subscribe({
-      next: (response) => {
-        this.loginService.redirectToHome(response);
-      }
-    })
-  }
-
   public login(): void {
     if (!this.validate()) return;
     this.loginService
       .login(this.loginForm.value.username, this.loginForm.value.password)
       .subscribe({
         complete: () => {
-          console.log("Logged in")
+          this.close();
         },
         error: (err) => {
-          console.log(err);
+          this.snackbarService.show(err['error']['message'], SnackbarType.DANGER)
         },
         next: (data) => {
           console.log(data)
@@ -63,4 +61,11 @@ export class LoginComponent implements OnInit {
     return false;
   }
 
+  signIn() {
+
+  }
+
+  async close(): Promise<void> {
+    await this.modal?.close();
+  }
 }
