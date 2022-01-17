@@ -23,6 +23,10 @@ export class LoginService {
     });
   }
 
+  public logout(): Observable<void> {
+    return this.http.post<void>(environment.apiUrl + '/auth/logout', {});
+  }
+
   public checkIfLoggedIn(): Observable<UserModel> {
     return this.http.get<UserModel>(environment.apiUrl + '/auth/user')
   }

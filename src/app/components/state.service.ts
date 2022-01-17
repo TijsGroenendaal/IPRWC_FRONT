@@ -13,4 +13,8 @@ export class StateService {
   setUser(user: UserModel) {
     localStorage.setItem('user', JSON.stringify(user));
   }
+
+  deleteUser() {
+    localStorage.removeItem('user');
+  }
 }

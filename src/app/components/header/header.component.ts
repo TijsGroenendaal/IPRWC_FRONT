@@ -19,16 +19,13 @@ export class HeaderComponent {
     private modalAccountService: ModalService<AccountComponent>,
   ) { }
 
-  getUsername() {
-    return this.stateService.getUser().username ;
-  }
-
   openAccount() {
     this.loginService.checkIfLoggedIn().subscribe({
       next: (response) => {
         this.modalAccountService.open(AccountComponent);
       },
       error: () => {
+        this.stateService.deleteUser();
         this.modalLoginService.open(LoginComponent);
       }
     })
