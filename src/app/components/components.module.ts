@@ -11,6 +11,7 @@ import { AccountComponent } from './account/account.component';
 import { LoginComponent } from "./login/login.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { SigninComponent } from "./signin/signin.component";
 
 
 
@@ -23,6 +24,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     ModalComponent,
     AccountComponent,
     LoginComponent,
+    SigninComponent,
   ],
   imports: [
     CommonModule,
@@ -39,6 +41,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     HeaderComponent,
     ModalComponent,
     LoginComponent,
+    SigninComponent,
   ]
 })
 export class ComponentsModule { }

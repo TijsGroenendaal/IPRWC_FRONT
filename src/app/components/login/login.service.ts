@@ -23,6 +23,13 @@ export class LoginService {
     });
   }
 
+  public signup(username: string, password: string): Observable<UserModel> {
+    return this.http.post<UserModel>(environment.apiUrl + '/auth/signin', {
+      username,
+      password,
+    })
+  }
+
   public logout(): Observable<void> {
     return this.http.post<void>(environment.apiUrl + '/auth/logout', {});
   }

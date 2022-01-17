@@ -6,6 +6,8 @@ import { SnackbarService } from "../snackbar/snackbar.service";
 import { SnackbarType } from "../snackbar/snackbar-type.enum";
 import { PassableInterface } from "../modal/passable.interface";
 import { ModalComponent } from "../modal/modal.component";
+import {ModalService} from "../modal/modal.service";
+import {SigninComponent} from "../signin/signin.component";
 
 @Component({
   selector: 'app-login',
@@ -26,6 +28,7 @@ export class LoginComponent extends PassableInterface<any> {
     private loginService: LoginService,
     private router: Router,
     private snackbarService: SnackbarService,
+    private modalService: ModalService<SigninComponent>,
   ) {
     super();
     this.loginForm = this.formBuilder.group({
@@ -60,7 +63,8 @@ export class LoginComponent extends PassableInterface<any> {
   }
 
   signIn() {
-
+    this.close();
+    this.modalService.open(SigninComponent);
   }
 
   async close(): Promise<void> {

@@ -4,10 +4,10 @@
     <div class="max-w-md space-y-5">
 
       <h1 class=" text-center text-4xl font-extrabold text-dark-primary">
-        Log in to your IPRWC Shop account
+        Create your IPRWC account
       </h1>
 
-      <form [formGroup]="loginForm" (submit)="login()" class="mt-12">
+      <form [formGroup]="signupForm" (submit)="signup()" class="mt-12">
         <div class="rounded-md shadow-sm">
           <input id="username" type="text" autocomplete="username" formControlName="username" required
                  class="block w-full border py-3 border-light-secondary placeholder-dark-secondary text-dark-primary rounded-t-md focus:outline-none focus:ring-highlight focus:border-highlight focus:z-10 sm:text-lg"
@@ -20,14 +20,14 @@
         </div>
         <button type="submit" style="font-size: 20px" [disabled]="disabled"
                 class="w-full transition-all flex justify-center py-3 border border-transparent font-bold rounded-md disabled:text-opacity-40 text-light-primary disabled:cursor-not-allowed disabled:opacity-40 bg-dark-secondary hover:bg-highlight focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-highlight">
-          Log in
+          Signup
         </button>
       </form>
       <button
         type="button"
         class="bg-highlight rounded-md p-2 hover:bg-highlight focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-highlight"
-        (click)="signIn()"
-      >Sign Up</button>
+        (click)="login()"
+      >Login</button>
     </div>
   </div>
 </app-modal>
