@@ -1,5 +1,5 @@
-<div class="rounded-t-md" *ngIf="page">
-  <div class="">
+<div *ngIf="page">
+  <div>
     <ul>
       <li class="mb-2"
           *ngFor="let item of page.content | paginate : {
@@ -16,10 +16,10 @@
     </ul>
   </div>
 </div>
-<div class="p-3 rounded-b-md bg-dark-primary">
-  <div class="sm:flex-1 flex justify-center">
-    <div class="bg-light-primary rounded-md p-3 mr-2" *ngIf="page">
-      <p class="text-sm text-dark-primary text-center">
+<div class="pt-5 mb-8 rounded-b-md shadow-md">
+  <div class="sm:flex-1 flex justify-center space-x-2">
+    <div class="bg-light-primary rounded-md" *ngIf="page">
+      <p class="text-md text-dark-primary text-center">
         Showing
         <span class="font-bold">{{page.pageable.offset + 1}}</span>
         to

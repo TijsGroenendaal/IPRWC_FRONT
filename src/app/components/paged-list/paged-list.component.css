@@ -1,7 +1,7 @@
-.pagination::ng-deep .ngx-pagination {
-  margin-bottom: 0;
+.pagination::ng-deep {
+  margin: 0;
 }
-.pagination::ng-deep .ngx-pagination .current {
+.pagination::ng-deep .current {
   background: #191919 !important;
 }
 
