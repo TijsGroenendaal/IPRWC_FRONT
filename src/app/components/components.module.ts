@@ -12,6 +12,7 @@ import { LoginComponent } from "./login/login.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SigninComponent } from "./signin/signin.component";
+import { CartItemComponent } from './shopping-cart/cart-item/cart-item.component';
 
 
 
@@ -25,6 +26,7 @@ import { SigninComponent } from "./signin/signin.component";
     AccountComponent,
     LoginComponent,
     SigninComponent,
+    CartItemComponent,
   ],
   imports: [
     CommonModule,

@@ -4,6 +4,7 @@ import { LoginService } from "../login/login.service";
 import { LoginComponent } from "../login/login.component";
 import { AccountComponent } from "../account/account.component";
 import { ModalService } from "../modal/modal.service";
+import { ShoppingCartComponent } from "../shopping-cart/shopping-cart.component";
 
 @Component({
   selector: 'app-header',
@@ -17,6 +18,7 @@ export class HeaderComponent {
     private loginService: LoginService,
     private modalLoginService: ModalService<LoginComponent>,
     private modalAccountService: ModalService<AccountComponent>,
+    private modalCartService: ModalService<ShoppingCartComponent>,
   ) { }
 
   openAccount() {
@@ -32,6 +34,6 @@ export class HeaderComponent {
   }
 
   openCart() {
-
+    this.modalCartService.open(ShoppingCartComponent);
   }
 }
