@@ -16,10 +16,10 @@
       <p *ngIf="available">Available</p>
       <h3>€{{product.price}}</h3>
       <button
-        (click)="orderProduct()"
+        (click)="handleProductClick()"
         [disabled]="!available"
         class="text-lg disabled:grayscale-25 px-5 py-3 text-dark-primary rounded-lg font-bold {{available ? 'bg-highlight' : 'bg-light-quinary'}}"
-      >Order Now >></button>
+      >{{user.role == 'ADMIN' ? 'Edit' : 'Order Now >>'}}</button>
     </div>
   </div>
 </article>

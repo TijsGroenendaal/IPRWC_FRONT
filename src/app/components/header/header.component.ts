@@ -5,13 +5,15 @@ import { LoginComponent } from "../login/login.component";
 import { AccountComponent } from "../account/account.component";
 import { ModalService } from "../modal/modal.service";
 import { ShoppingCartComponent } from "../shopping-cart/shopping-cart.component";
+import {UserModel} from "../login/user.model";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+
+  public user: UserModel;
 
   constructor(
     private stateService: StateService,
@@ -19,7 +21,14 @@ export class HeaderComponent {
     private modalLoginService: ModalService<LoginComponent>,
     private modalAccountService: ModalService<AccountComponent>,
     private modalCartService: ModalService<ShoppingCartComponent>,
-  ) { }
+  ) {
+    this.user = this.stateService.getUser();
+    this.stateService.observable.subscribe({
+      next: (user) => {
+        this.user = user;
+      }
+    });
+  }
 
   openAccount() {
     this.loginService.checkIfLoggedIn().subscribe({
@@ -30,7 +39,7 @@ export class HeaderComponent {
         this.stateService.deleteUser();
         this.modalLoginService.open(LoginComponent);
       }
-    })
+    });
   }
 
   openCart() {

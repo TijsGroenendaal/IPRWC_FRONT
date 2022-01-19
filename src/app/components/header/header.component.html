@@ -1,19 +1,18 @@
 <nav class="bg-light-primary w-full mx-auto py-3 px-2 sm:px-6 lg:px-8 flex justify-between items-center ">
-  <h1 class="font-bold text-5xl">The IPRWC Shop</h1>
+  <h1 class="font-bold text-5xl">{{user.role == 'ADMIN' ? 'IPRWC Console' : 'The IPRWC Shop'}}</h1>
   <div class="flex drop-shadow-md space-x-4">
     <button
       type="button"
       title="Account"
       class="text-3xl px-3 py-2 text-dark-primary rounded-lg bg-highlight font-bold"
       (click)="openAccount()"
-    >Account
-    </button>
+    >Account</button>
     <button
       type="button"
       title="Cart"
       class="text-3xl px-3 py-2 text-dark-primary rounded-lg bg-highlight font-bold"
       (click)="openCart()"
-    >Cart
-    </button>
+      *ngIf="user.role == 'CUSTOMER'"
+    >Cart</button>
   </div>
 </nav>

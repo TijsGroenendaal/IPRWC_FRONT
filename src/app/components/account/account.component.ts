@@ -24,6 +24,11 @@ export class AccountComponent extends PassableInterface<UserModel>{
   ) {
     super();
     this.user = stateService.getUser();
+    this.stateService.observable.subscribe({
+      next: (user) => {
+        this.user = user;
+      }
+    });
   }
 
   public logout(): void {
@@ -34,10 +39,6 @@ export class AccountComponent extends PassableInterface<UserModel>{
         this.close();
       }
     });
-  }
-
-  public getUsername(): string {
-    return this.stateService.getUser().username;
   }
 
   async close(): Promise<void> {

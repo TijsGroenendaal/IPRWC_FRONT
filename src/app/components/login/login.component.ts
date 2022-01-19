@@ -6,8 +6,9 @@ import { SnackbarService } from "../snackbar/snackbar.service";
 import { SnackbarType } from "../snackbar/snackbar-type.enum";
 import { PassableInterface } from "../modal/passable.interface";
 import { ModalComponent } from "../modal/modal.component";
-import {ModalService} from "../modal/modal.service";
-import {SigninComponent} from "../signin/signin.component";
+import { ModalService } from "../modal/modal.service";
+import { SigninComponent } from "../signin/signin.component";
+import { StateService } from "../state.service";
 
 @Component({
   selector: 'app-login',
@@ -29,6 +30,7 @@ export class LoginComponent extends PassableInterface<any> {
     private router: Router,
     private snackbarService: SnackbarService,
     private modalService: ModalService<SigninComponent>,
+    private stateService: StateService,
   ) {
     super();
     this.loginForm = this.formBuilder.group({
@@ -50,6 +52,7 @@ export class LoginComponent extends PassableInterface<any> {
           this.snackbarService.show(err['error']['message'], SnackbarType.DANGER)
         },
         next: (data) => {
+          this.stateService.setUser(data);
           this.snackbarService.show("Login Successfully", SnackbarType.SUCCESS)
           this.close();
         }

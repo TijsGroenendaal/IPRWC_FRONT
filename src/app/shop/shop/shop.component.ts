@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ProductService } from "../product.service";
 
 @Component({
@@ -9,6 +9,6 @@ export class ShopComponent {
 
   constructor(
     public productService: ProductService
-  ) { }
+  ) {}
 
 }
