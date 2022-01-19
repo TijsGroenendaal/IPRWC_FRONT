@@ -3,9 +3,7 @@
     <h1 class="text-4xl p-3 font-bold">
       Shopping Cart
     </h1>
-
     <app-cart-item *ngFor="let item of cartItems" [item]="item" [observer]="observer"></app-cart-item>
-
     <div class="flex justify-end p-3">
       <button class="bg-red-500 px-2 py-1 rounded-md text-2xl" (click)="clearCart()">Clear Cart</button>
     </div>

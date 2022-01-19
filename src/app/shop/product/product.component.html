@@ -5,14 +5,12 @@
         <img src="{{product.imageUrl}}"
              alt="{{product.name}}" class="object-contain w-60 h-60">
       </figure>
-
       <section>
         <h2 class="text-blue-500">{{product.brand}}</h2>
         <h1 class="text-highlight text-3xl">{{product?.name}}</h1>
         <p class="overflow-hidden text-ellipsis">{{product.description}}</p>
       </section>
     </div>
-
     <div class="flex flex-col flex-none justify-end space-y-2">
       <p *ngIf="!available" class="text-error"><s>Sold Out</s></p>
       <p *ngIf="available">Available</p>
@@ -24,5 +22,4 @@
       >Order Now >></button>
     </div>
   </div>
-
 </article>

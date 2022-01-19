@@ -2,17 +2,16 @@
   <div class="flex justify-between">
     <div class="flex flex-col justify-between">
       <figure>
-        <img class="object-contain w-16 h16" src="{{item.productEntity.imageUrl}}">
+        <img alt="ProductImage" class="object-contain w-16 h16" src="{{item.productEntity.imageUrl}}">
       </figure>
-      <h2 class="">{{item.productEntity.name}}</h2>
+      <h2>{{item.productEntity.name}}</h2>
     </div>
     <div class="flex flex-col space-y-2">
       <div class="flex space-x-2">
         <input #quantityInput class="w-20 border-light-secondary placeholder-dark-secondary text-dark-secondary focus:outline-none focus:ring-highlight focus:border-highlight"
                type="number"
                value="{{item.quantity}}"
-               (change)="quantityChangeHandler(quantityInput.value)"
-        >
+               (change)="quantityChangeHandler(quantityInput.value)">
         <button class="bg-highlight rounded-md px-3" (click)="updateItem()">Ok</button>
       </div>
       <button class="bg-red-500 rounded-md" (click)="deleteCartItem(item.id)">Delete</button>
