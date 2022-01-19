@@ -1,0 +1,110 @@
+<app-modal #modalComponent>
+  <h1 class="text-2xl font-semibold mb-3"></h1>
+  <form [formGroup]="addProductForm" (ngSubmit)="handleButton()">
+    <section>
+      <label
+        class="block mt-2 text-xs font-semibold text-gray-600"
+        for="name"
+      >Name</label>
+
+      <input
+        class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+        id="name"
+        type="text"
+        [(ngModel)]="name"
+        formControlName="name"
+        autocomplete="off"
+        required>
+    </section>
+    <section>
+      <label
+        class="block mt-2 text-xs font-semibold text-gray-600"
+        for="description"
+      >Description</label>
+
+      <input
+        class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+        id="description"
+        type="text"
+        [(ngModel)]="description"
+        formControlName="description"
+        autocomplete="off"
+        required>
+    </section>
+    <section>
+      <label
+        class="block mt-2 text-xs font-semibold text-gray-600"
+        for="brand"
+      >Brand</label>
+
+      <input
+        class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+        id="brand"
+        type="text"
+        [(ngModel)]="brand"
+        formControlName="brand"
+        autocomplete="off"
+        required>
+    </section>
+    <section>
+      <label
+        class="block mt-2 text-xs font-semibold text-gray-600"
+        for="imageUrl"
+      >Image URL</label>
+
+      <input
+        class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+        id="imageUrl"
+        type="text"
+        [(ngModel)]="imageUrl"
+        formControlName="imageUrl"
+        autocomplete="off"
+        required>
+    </section>
+    <section>
+      <label
+        class="block mt-2 text-xs font-semibold text-gray-600"
+        for="price"
+      >Price</label>
+
+      <input
+        class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+        id="price"
+        type="number"
+        [(ngModel)]="price"
+        formControlName="price"
+        autocomplete="off"
+        required>
+    </section>
+    <section>
+      <label
+        class="block mt-2 text-xs font-semibold text-gray-600"
+        for="quantity"
+      >Quantity</label>
+
+      <input
+        class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+        id="quantity"
+        type="number"
+        [(ngModel)]="quantity"
+        formControlName="quantity"
+        autocomplete="off"
+        required>
+    </section>
+
+    <div class="py-3 flex justify-between">
+      <button
+        (click)="close()"
+        type="button"
+        class=" px-4 py-2 bg-red-500       text-light-primary font-bold rounded-md shadow-lg hover:ring-dark-secondary hover:ring-offset-2 hover:ring-2"
+      >Close</button>
+
+      <button
+        type="submit"
+        class="py-2 px-4 bg-highlight text-light-primary font-bold rounded-md shadow-lg hover:ring-dark-secondary hover:ring-offset-2 hover:ring-2"
+        [disabled]="addProductForm.invalid"
+      >Ok</button>
+    </div>
+
+  </form>
+</app-modal>

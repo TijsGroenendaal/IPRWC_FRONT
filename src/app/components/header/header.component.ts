@@ -5,7 +5,8 @@ import { LoginComponent } from "../login/login.component";
 import { AccountComponent } from "../account/account.component";
 import { ModalService } from "../modal/modal.service";
 import { ShoppingCartComponent } from "../shopping-cart/shopping-cart.component";
-import {UserModel} from "../login/user.model";
+import { UserModel } from "../login/user.model";
+import { AddProductModalComponent } from "../add-product-modal/add-product-modal.component";
 
 @Component({
   selector: 'app-header',
@@ -21,6 +22,7 @@ export class HeaderComponent {
     private modalLoginService: ModalService<LoginComponent>,
     private modalAccountService: ModalService<AccountComponent>,
     private modalCartService: ModalService<ShoppingCartComponent>,
+    private modalAddProductService: ModalService<AddProductModalComponent>,
   ) {
     this.user = this.stateService.getUser();
     this.stateService.observable.subscribe({
@@ -44,5 +46,9 @@ export class HeaderComponent {
 
   openCart() {
     this.modalCartService.open(ShoppingCartComponent);
+  }
+
+  addProduct() {
+    this.modalAddProductService.open(AddProductModalComponent);
   }
 }

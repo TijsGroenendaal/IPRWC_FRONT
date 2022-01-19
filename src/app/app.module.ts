@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { ShopModule } from "./shop/shop.module";
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AuthInterceptor } from "./components/auth.interceptor";
-import { ConsoleModule } from "./console/console.module";
 import { ComponentsModule } from "./components/components.module";
 
 @NgModule({
@@ -14,7 +13,6 @@ import { ComponentsModule } from "./components/components.module";
   ],
   imports: [
     ShopModule,
-    ConsoleModule,
     BrowserModule,
     AppRoutingModule,
     ComponentsModule

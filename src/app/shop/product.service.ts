@@ -25,4 +25,11 @@ export class ProductService implements PageableInterface {
     );
   }
 
+  createProduct(product: ProductModel): Observable<ProductModel> {
+    return this.http.post<ProductModel>(environment.apiUrl + '/product', product)
+  }
+
+  updateProduct(product: ProductModel): Observable<ProductModel> {
+    return this.http.patch<ProductModel>(environment.apiUrl + '/product/' + product.id, product)
+  }
 }

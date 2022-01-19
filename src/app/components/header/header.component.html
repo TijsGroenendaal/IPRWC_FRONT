@@ -14,5 +14,12 @@
       (click)="openCart()"
       *ngIf="user.role == 'CUSTOMER'"
     >Cart</button>
+    <button
+      type="button"
+      title="Cart"
+      class="text-3xl px-3 py-2 text-dark-primary rounded-lg bg-highlight font-bold"
+      (click)="addProduct()"
+      *ngIf="user.role == 'ADMIN'"
+    >Add</button>
   </div>
 </nav>
