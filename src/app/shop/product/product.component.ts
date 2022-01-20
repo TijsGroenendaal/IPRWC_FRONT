@@ -47,7 +47,6 @@ export class ProductComponent implements AfterContentChecked {
 
   public orderProduct(): void {
     this.cartService.addCartItem(this.product, 1).subscribe({
-      error: err => this.snackbarService.show(err['error']['message'], SnackbarType.DANGER),
       next: value => this.snackbarService.show("Product Added To Cart", SnackbarType.SUCCESS),
     });
   }

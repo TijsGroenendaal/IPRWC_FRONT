@@ -33,7 +33,6 @@ export class ShoppingCartComponent extends PassableInterface<any> {
   getAll(): void {
     this.cartService.getAllCartItems().subscribe({
       error: err => {
-        this.snackbarService.show(err['error']['message'], SnackbarType.DANGER);
         this.close();
       },
       next: value => {
@@ -44,7 +43,6 @@ export class ShoppingCartComponent extends PassableInterface<any> {
 
   clearCart(): void {
     this.cartService.clearCart().subscribe({
-      error: err => this.snackbarService.show(err['error']['message'], SnackbarType.DANGER),
       next: value => {
         this.snackbarService.show("Cart Cleared", SnackbarType.SUCCESS);
         this.getAll();

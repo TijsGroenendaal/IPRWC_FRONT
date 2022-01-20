@@ -46,7 +46,6 @@ export class SigninComponent extends PassableInterface<any> {
     this.loginService.signup(this.signupForm.value.username, this.signupForm.value.password)
       .subscribe({
         error: (err) => {
-          this.snackbarService.show(err['error']['message'], SnackbarType.DANGER);
         },
         next: (data) => {
           this.snackbarService.show("Signup Success", SnackbarType.SUCCESS);

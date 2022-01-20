@@ -22,7 +22,6 @@ export class CartItemComponent {
 
   deleteCartItem(id: string): void {
     this.cartService.deleteCartItem(id).subscribe({
-      error: err => this.snackbarService.show(err['error']['message'], SnackbarType.DANGER),
       next: value => {
         this.snackbarService.show('Item Deleted', SnackbarType.SUCCESS);
         this.observer.next("");
@@ -32,7 +31,6 @@ export class CartItemComponent {
 
   updateItem(): void {
     this.cartService.updateCartItem(this.item).subscribe({
-      error: err => this.snackbarService.show(err['error']['message'], SnackbarType.DANGER),
       next: value => {
         this.snackbarService.show('Item Updated', SnackbarType.SUCCESS);
         this.observer.next("");

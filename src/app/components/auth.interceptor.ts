@@ -1,11 +1,15 @@
-import { HttpHandler, HttpEvent, HttpInterceptor, HttpRequest } from "@angular/common/http";
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { Router } from "@angular/router";
+import { catchError, Observable, throwError } from "rxjs";
+import { SnackbarService } from "./snackbar/snackbar.service";
+import { SnackbarType } from "./snackbar/snackbar-type.enum";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(public router: Router) {}
+
+  constructor(
+    private snackbarService: SnackbarService,
+  ) {}
 
   intercept(
     request: HttpRequest<any>,
@@ -15,6 +19,15 @@ export class AuthInterceptor implements HttpInterceptor {
       withCredentials: true,
     });
 
-    return next.handle(request).pipe();
+    return next.handle(request).pipe(
+      catchError((err) => {
+        let message: any;
+        if (err.error) message = err.error.message;
+        else { message = 'An Error Occurred' }
+
+        this.snackbarService.show(message, SnackbarType.DANGER);
+        return throwError(err);
+      })
+    );
   }
 }

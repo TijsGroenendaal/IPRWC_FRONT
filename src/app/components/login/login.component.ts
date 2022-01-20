@@ -49,7 +49,6 @@ export class LoginComponent extends PassableInterface<any> {
       .login(this.loginForm.value.username, this.loginForm.value.password)
       .subscribe({
         error: (err) => {
-          this.snackbarService.show(err['error']['message'], SnackbarType.DANGER)
         },
         next: (data) => {
           this.stateService.setUser(data);
