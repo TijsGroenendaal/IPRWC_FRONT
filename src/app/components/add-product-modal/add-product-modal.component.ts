@@ -87,6 +87,17 @@ export class AddProductModalComponent extends PassableInterface<ProductModel> im
     })
   }
 
+  public deleteProduct(): void {
+    this.productService.deleteProduct(this.object).subscribe({
+      error: (err) => this.snackbarService.show(err['error']['message'], SnackbarType.DANGER),
+      next: (data) => {
+        this.snackbarService.show("Product 'Deleted'", SnackbarType.SUCCESS);
+        this.productService.observable.next("");
+        this.close();
+      }
+    });
+  }
+
   async close(): Promise<void> {
     this.modal?.close();
   }

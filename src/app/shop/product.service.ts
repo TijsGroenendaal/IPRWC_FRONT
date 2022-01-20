@@ -32,4 +32,8 @@ export class ProductService implements PageableInterface {
   updateProduct(product: ProductModel): Observable<ProductModel> {
     return this.http.patch<ProductModel>(environment.apiUrl + '/product/' + product.id, product)
   }
+
+  deleteProduct(product: ProductModel): Observable<void> {
+    return this.http.delete<void>(environment.apiUrl + '/product/' + product.id);
+  }
 }
