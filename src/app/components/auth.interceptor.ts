@@ -21,11 +21,14 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(request).pipe(
       catchError((err) => {
-        let message: any;
-        if (err.error) message = err.error.message;
-        else { message = 'An Error Occurred' }
+        if (!request.url.includes('/auth/user')) {
+          let message: any;
+          if (err.error) message = err.error.message;
+          else { message = 'An Error Occurred' }
 
-        this.snackbarService.show(message, SnackbarType.DANGER);
+          this.snackbarService.show(message, SnackbarType.DANGER);
+        }
+
         return throwError(err);
       })
     );
